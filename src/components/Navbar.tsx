@@ -1,6 +1,6 @@
 import type React from "react";
 import { IoHomeOutline } from "react-icons/io5";
-import { CiSquareInfo } from "react-icons/ci";
+import { GrCircleInformation } from "react-icons/gr";
 import { CgProfile } from "react-icons/cg";
 
 export const Navbar: React.FC = () => {
@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
             Home
           </p>
           <p className="cursor-pointer hover:text-green-600 text-[12px]">
-            <CiSquareInfo className="h-5 w-10" />
+            <GrCircleInformation  className="h-5 w-10" />
             About
           </p>
           <p className="cursor-pointer hover:text-green-600 text-[12px]">

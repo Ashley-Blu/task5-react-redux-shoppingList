@@ -15,9 +15,6 @@ interface ListState{
 
 const initialState: ListState = {
     lists: [
-        {id: 1, name: "Ice cream", category: "Treats", image: "picture of an ice cream", notes: "for kids"} ,
-        {id: 2, name: "Ice cream", category: "Treats", image: "picture of an ice cream", notes: "for kids"},
-        {id: 3, name: "Ice cream", category: "Treats", image: "picture of an ice cream", notes: "for kids"},
     ],
 };
 

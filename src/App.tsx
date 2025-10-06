@@ -5,6 +5,7 @@ import SignupPage from './pages/SignupPage';
 import SigninPage from './pages/SigninPage';
 import HomePage from './pages/HomePage';
 import ProfilePage from './pages/ProfilePage';
+import errorPage from './assets/images/404.png'
 
 function App() {
   const isLoggedIn = false;
@@ -29,7 +30,7 @@ function App() {
           path="/profile"
           element={isLoggedIn ? <ProfilePage /> : <Navigate to="/landing" />}
         />
-        <Route path="*" element={<div>404 Page Not Found</div>} />
+        <Route path="*" element={<div><img src={errorPage} className="opacity-50 w-full h-full fixed"/></div>} />
       </Routes>
     </>
   );
