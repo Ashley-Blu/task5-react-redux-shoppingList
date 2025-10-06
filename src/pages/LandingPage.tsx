@@ -9,14 +9,14 @@ function LandingPage() {
     <>
       <Navbar />
 
-      <div className="text-[20px] font-semibold mt-20 font-kush">
+      <div className="text-[32px] font-extrabold mt-20">
         <h2>The</h2>
         <h1>Grocery</h1>
         <h2>Wishlist</h2>
       </div>
 
       <div>
-        <p className="mt-10">
+        <p className="mt-10 text-gray-500">
           Grocery shopping has never been this easy. <br />
           Listify is one way to to organize your shopping list and making sure{" "}
           <br /> you do not forget any essentials. Join us for the incenvenience
@@ -25,7 +25,7 @@ function LandingPage() {
       </div>
       <img
         src={basket}
-        className="float-left mr-[-600px] w-150 h-90 opacity-50"
+        className="float-left mr-[-800px] w-200 h-120 opacity-30"
       />
       <Link to="/signin">
         <SigninButton />
