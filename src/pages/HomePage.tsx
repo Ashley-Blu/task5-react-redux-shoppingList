@@ -24,6 +24,7 @@ export const HomePage: React.FC = () => {
           <IoSearch className="w-6 h-10 ml-[-30px]" />
         </div>
       </div>
+      <ListCard />
     </>
     
   );

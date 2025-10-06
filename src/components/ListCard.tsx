@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../../redux/listSlice";
 import type { RootState, AppDispatcher } from "../../redux/store";
 import { IoMdAdd } from "react-icons/io";
+import noItems from '../assets/images/no-items.png'
 
 export const ListCard: React.FC = () => {
   const [itemName, setItemName] = useState("");
@@ -21,7 +22,7 @@ export const ListCard: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-4 bg-white rounded shadow">
+    <div className="max-w-md mx-auto mt-10 p-4 rounded">
       <div className="flex gap-2 mb-4">
         <input
           type="text"
@@ -35,14 +36,14 @@ export const ListCard: React.FC = () => {
           className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 flex items-center gap-2"
         >
           <IoMdAdd />
-          Add
+          Add 
         </button>
       </div>
 
       <h1 className="text-xl font-semibold mb-3">Shopping List</h1>
 
       {lists.length === 0 ? (
-        <p className="text-gray-500">No items available</p>
+        <p className="text-gray-500"><img src={noItems} alt="" /></p>
       ) : (
         lists.map((list: { id: number; name: string }) => (
           <div
