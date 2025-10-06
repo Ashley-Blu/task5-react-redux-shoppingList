@@ -23,11 +23,11 @@ function App() {
         />
         <Route
           path="/home"
-          element={isLoggedIn ? <HomePage /> : <Navigate to="/signin" />}
+          element={<HomePage />}
         />
         <Route
           path="/profile"
-          element={isLoggedIn ? <ProfilePage /> : <Navigate to="/signin" />}
+          element={isLoggedIn ? <ProfilePage /> : <Navigate to="/landing" />}
         />
         <Route path="*" element={<div>404 Page Not Found</div>} />
       </Routes>
