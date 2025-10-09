@@ -1,4 +1,12 @@
 {
-    "users":[],
-    "shoppingList": []
+  "lists": [
+    {
+      "id": 1,
+      "name": "Apples",
+      "category": "Fruits",
+      "notes": "Buy 2 kg of red apples",
+      "image": ""
+    }
+  ],
+  "users": []
 }
