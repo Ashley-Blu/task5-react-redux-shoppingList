@@ -8,5 +8,22 @@
       "image": ""
     }
   ],
-  "users": []
+  "users": [
+    {
+      "id": "af02",
+      "username": "blue",
+      "password": "123456",
+      "name": "ash lee",
+      "email": "nfdbvn",
+      "phoneNumber": "0898664"
+    },
+    {
+      "id": "49c0",
+      "username": "ash",
+      "password": "123456",
+      "name": "ash ash",
+      "email": "ash",
+      "phoneNumber": "0987654321"
+    }
+  ]
 }

@@ -1,65 +1,41 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem, removeItem } from "../../redux/listSlice";
-import type { RootState, AppDispatcher } from "../../redux/store";
-import { IoMdAdd } from "react-icons/io";
-import noItems from '../assets/images/no-items.png'
+import React from "react";
+import type { List } from "../../redux/listSlice";
 
-export const ListCard: React.FC = () => {
-  const [itemName, setItemName] = useState("");
-  const dispatch = useDispatch<AppDispatcher>();
-  const lists = useSelector((state: RootState) => state.lists.lists);
+interface ListCardProps {
+  list: List;
+  onEdit?: (list: List) => void;
+  onDelete?: (id: number) => void;
+}
 
-  const handleAddItem = () => {
-    if (itemName.trim() !== "") {
-      dispatch(addItem(itemName));
-      setItemName("");
-    }
-  };
-
-  const handleRemoveItem = (id: number) => {
-    dispatch(removeItem(id));
-  };
-
+const ListCard: React.FC<ListCardProps> = ({ list, onEdit, onDelete }) => {
   return (
-    <div className="max-w-md mx-auto mt-10 p-4 rounded">
-      <div className="flex gap-2 mb-4">
-        <input
-          type="text"
-          value={itemName}
-          onChange={(e) => setItemName(e.target.value)}
-          placeholder="Enter the name of the item..."
-          className="border p-2 rounded w-full"
-        />
-        <button
-          onClick={handleAddItem}
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 flex items-center gap-2"
-        >
-          <IoMdAdd />
-          Add 
-        </button>
-      </div>
-
-      <h1 className="text-xl font-semibold mb-3">Shopping List</h1>
-
-      {lists.length === 0 ? (
-        <p className="text-gray-500"><img src={noItems} alt="" /></p>
-      ) : (
-        lists.map((list: { id: number; name: string }) => (
-          <div
-            key={list.id}
-            className="flex justify-between items-center bg-gray-100 rounded p-2 mb-2"
-          >
-            <span>{list.name}</span>
-            <button
-              onClick={() => handleRemoveItem(list.id)}
-              className="bg-red-500 text-white px-3 py-1 hover:bg-red-600"
-            >
-              Delete
-            </button>
-          </div>
-        ))
+    <div className="border rounded-lg shadow p-4 flex flex-col items-center bg-white">
+      {list.image && (
+        <img src={list.image} alt={list.name} className="w-full h-40 object-cover rounded mb-2" />
       )}
+      <h3 className="font-bold text-lg">{list.name}</h3>
+      <p className="text-gray-600">{list.category}</p>
+      {list.notes && <p className="text-gray-400 text-sm mt-1">{list.notes}</p>}
+      <div className="mt-2 flex gap-2">
+        {onEdit && (
+          <button
+            onClick={() => onEdit(list)}
+            className="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+          >
+            Edit
+          </button>
+        )}
+        {onDelete && (
+          <button
+            onClick={() => onDelete(list.id)}
+            className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition"
+          >
+            Delete
+          </button>
+        )}
+      </div>
     </div>
   );
 };
+
+export default ListCard;
