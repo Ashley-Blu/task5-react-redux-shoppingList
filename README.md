@@ -81,7 +81,16 @@ Reducers handle:
 - Sorting and filtering items  
 
 ---
+## Screenshots
 
+### Home Page
+![Home Page](src/assets/screenshots/screenshot1.png)
+
+### Sign Up Page
+![Sign Up](src/assets/screenshots/screenshot2.png)
+
+### Sign In Page
+![Sign In](src/assets/screenshots/screenshot3.png)
 
 ## How to Run the Project
 
