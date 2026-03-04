@@ -82,6 +82,7 @@ Reducers handle:
 
 ---
 
+
 ## How to Run the Project
 
 ### 1. Install dependencies
@@ -91,3 +92,22 @@ npm install
 npm run dev
 3. Open in browser
 The terminal will display a local URL (usually http://localhost:5173)
+
+---
+
+## Screenshots
+
+### Home Page
+![Home Page](src/assets/screenshots/screenshot1.png)
+
+### Sign Up Page
+![Sign Up](src/assets/screenshots/screenshot2.png)
+
+### Sign In Page
+![Sign In](src/assets/screenshots/screenshot3.png)
+
+
+
+
+
+

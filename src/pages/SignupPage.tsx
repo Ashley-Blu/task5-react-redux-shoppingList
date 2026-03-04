@@ -111,6 +111,9 @@ export const SignupPage: React.FC = () => {
             {authStatus === "loading" ? "Signing Up..." : "Sign Up"}
           </button>
         </form>
+        <div className="text-center text-sm text-gray-500 mt-4">
+          Already have an account? <a href="/signin" className="text-green-500 hover:underline">Sign In</a>
+        </div>
       </div>
     </>
   );
