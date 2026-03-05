@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signUpUser } from "../../redux/authSlice";
 import type { AppDispatch, RootState } from "../../redux/store";
+import { useNavigate } from "react-router-dom";
 import icon from "../assets/images/list.jpg";
 import profile from "../assets/icons/profile.png";
 
 export const SignupPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
   const authStatus = useSelector((state: RootState) => state.auth.status);
+  const authError = useSelector((state: RootState) => state.auth.error);
+  const currentUser = useSelector((state: RootState) => state.auth.currentUser);
 
   const [form, setForm] = useState({
     name: "",
@@ -19,6 +23,13 @@ export const SignupPage: React.FC = () => {
   });
 
   const [errors, setErrors] = useState<{ [k: string]: string }>({});
+
+  // After signup succeeds, navigate to signin
+  useEffect(() => {
+    if (currentUser && authStatus === "succeeded") {
+      navigate("/signin");
+    }
+  }, [currentUser, authStatus, navigate]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -48,7 +59,6 @@ export const SignupPage: React.FC = () => {
     );
   };
 
-  // Map fields to state keys
   const fieldPairs: [string, keyof typeof form][] = [
     ["Name", "name"],
     ["Surname", "surname"],
@@ -58,7 +68,6 @@ export const SignupPage: React.FC = () => {
     ["Password", "password"],
   ];
 
-  // Group into pairs for side-by-side display
   const groupedFields: [typeof fieldPairs[0], typeof fieldPairs[0]][] = [
     [fieldPairs[0], fieldPairs[1]],
     [fieldPairs[2], fieldPairs[3]],
@@ -68,11 +77,7 @@ export const SignupPage: React.FC = () => {
   return (
     <>
       <div className="flex justify-end">
-        <img
-          src={profile}
-          alt="Profile"
-          className="w-[50px] h-[50px] mr-10 mt-10"
-        />
+        <img src={profile} alt="Profile" className="w-[50px] h-[50px] mr-10 mt-10" />
       </div>
 
       <div className="max-w-2xl mx-auto p-6 rounded-2xl my-auto">
@@ -104,6 +109,10 @@ export const SignupPage: React.FC = () => {
             </div>
           ))}
 
+          {authError && (
+            <p className="text-red-600 text-sm text-center">{authError}</p>
+          )}
+
           <button
             type="submit"
             className="w-full h-[51px] bg-green-500 hover:bg-green-600 text-white font-medium rounded transition"
@@ -111,8 +120,12 @@ export const SignupPage: React.FC = () => {
             {authStatus === "loading" ? "Signing Up..." : "Sign Up"}
           </button>
         </form>
+
         <div className="text-center text-sm text-gray-500 mt-4">
-          Already have an account? <a href="/signin" className="text-green-500 hover:underline">Sign In</a>
+          Already have an account?{" "}
+          <a href="/signin" className="text-green-500 hover:underline">
+            Sign In
+          </a>
         </div>
       </div>
     </>

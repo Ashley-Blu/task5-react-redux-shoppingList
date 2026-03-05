@@ -1,13 +1,5 @@
 {
-  "lists": [
-    {
-      "id": 1,
-      "name": "Apples",
-      "category": "Fruits",
-      "notes": "Buy 2 kg of red apples",
-      "image": ""
-    }
-  ],
+  "lists": [],
   "users": [
     {
       "id": "af02",
@@ -24,6 +16,14 @@
       "name": "ash ash",
       "email": "ash",
       "phoneNumber": "0987654321"
+    },
+    {
+      "id": "9241",
+      "username": "ashley",
+      "password": "12345678",
+      "name": "Ashley Matsekoleng",
+      "email": "matsekolengashley28@gmail.com",
+      "phoneNumber": "0823610290"
     }
   ]
 }
