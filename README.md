@@ -68,7 +68,7 @@ src/
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Ashley-Blu/task5-react-redux-shoppingList.git
 cd task5-react-redux-shopping-list
 ```
 
